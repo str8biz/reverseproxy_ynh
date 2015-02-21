@@ -10,10 +10,10 @@ remotepath=$6
 includefile=$7
 is_public=$8
 
-#sudo yunohost app checkurl $domain:$port$host_path -a reverseproxy
-#if [[ ! $? -eq 0 ]]; then
-#  exit 1
-#fi
+sudo yunohost app checkurl $domain$path -a reverseproxy
+if [[ ! $? -eq 0 ]]; then
+  exit 1
+fi
 
 if [ "$includefile" != "" ];then
 	includefile="include						$includefile"
