@@ -62,7 +62,7 @@
 			{
 				"name": "includefile",
 				"ask": {
-					"en": "Choose Path where the app is installed (on REMOTE host)"
+					"en": "Include another nginx .conf file?"
 				},
 				"example": "/etc/nginx/proxy_params;",
 				"default": "/etc/nginx/proxy_params;"
