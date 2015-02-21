@@ -2,7 +2,7 @@
 	"name": "reverseproxy",
 	"id": "reverseproxy",
 	"description": {
-		"en": "Simple reverseproxy"
+		"en": "Simple reverse proxy app for Yunohost"
 	},
 	"developer": {
 		"name": "mj",
