@@ -8,10 +8,10 @@ host=$4
 port=$5
 hostpath=$6
 
-sudo yunohost app checkurl $domain:$port$host_path -a reverseproxy
-if [[ ! $? -eq 0 ]]; then
-  exit 1
-fi
+#sudo yunohost app checkurl $domain:$port$host_path -a reverseproxy
+#if [[ ! $? -eq 0 ]]; then
+#  exit 1
+#fi
 
 # Remove trailing "/" for next commands
 path=${path%/}

@@ -1,0 +1,5 @@
+# .gitignore
+
+*.kate-swp
+.idea/
+0gitignore
