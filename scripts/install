@@ -15,7 +15,7 @@ includefile=$7
 #fi
 
 if [ "$includefile" != "" ];then
-	includefile="include						$includefile;"
+	includefile="include						$includefile"
 fi
 
 # Remove trailing "/" for next commands
