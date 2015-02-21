@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Retrieve arguments
+domain=$(sudo yunohost app setting reverseproxy domain)
+path=$(sudo yunohost app setting reverseproxy path)
+port=$(sudo yunohost app setting reverseproxy port)
+hostpath=$(sudo yunohost app setting reverseproxy hostpath)
+
+# Remove trailing "/" for next commands
+path=${path%/}
+
+# Configure Nginx and reload
+sed -i "s@PATHTOCHANGE@$path@g" ../conf/nginx.conf
+sed -i "s@HOSTTOCHANGE@$host@g" ../conf/nginx.conf
+sed -i "s@PORTTOCHANGE@$port@g" ../conf/nginx.conf
+sed -i "s@HOSTPATHTOCHANGE@$hostpath@g" ../conf/nginx.conf
+sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/reverseproxy.conf
+sudo service nginx reload

@@ -1,0 +1,64 @@
+{
+	"name": "reverseproxy",
+	"id": "reverseproxy",
+	"description": {
+		"en": "Simple reverseproxy"
+	},
+	"developer": {
+		"name": "mj",
+		"email": "mj@str8.biz",
+		"url": "http://str8.biz"
+	},
+	"multi_instance": "true",
+	"arguments": {
+		"install": [
+			{
+				"name": "domain",
+				"ask": {
+					"en": "Choose a domain for proxied App"
+				},
+				"example": "example.org"
+			},
+			{
+				"name": "path",
+				"ask": {
+					"en": "Choose a path for proxied App (on THIS host)"
+				},
+				"example": "/appname",
+				"default": "/appname"
+			},
+			{
+				"name": "schema",
+				"ask": {
+					"en": "Choose Schema to wich the app is responding (on REMOTE host)"
+				},
+				"example": "http",
+				"default": "http"
+			},
+			{
+				"name": "server",
+				"ask": {
+					"en": "Choose IP/Hostname where the app is installed (REMOTE host)"
+				},
+				"example": "127.0.0.1",
+				"default": "127.0.0.1"
+			},
+			{
+				"name": "port",
+				"ask": {
+					"en": "Choose Port where the app is installed (on REMOTE host)"
+				},
+				"example": "80",
+				"default": "80"
+			},
+			{
+				"name": "hostpath",
+				"ask": {
+					"en": "Choose Path where the app is installed (on REMOTE host)"
+				},
+				"example": "/app",
+				"default": "/app"
+			}
+		]
+	}
+}
