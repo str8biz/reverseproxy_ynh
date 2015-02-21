@@ -3,25 +3,31 @@
 # Retrieve arguments
 domain=$1
 path=$2
-schema=$3
+scheme=$3
 host=$4
 port=$5
-hostpath=$6
+remotepath=$6
+includefile=$7
 
 #sudo yunohost app checkurl $domain:$port$host_path -a reverseproxy
 #if [[ ! $? -eq 0 ]]; then
 #  exit 1
 #fi
 
+if [ "$includefile" != "" ];then
+	$includefile = "include					@$includefile@;"
+fi
+
 # Remove trailing "/" for next commands
 path=${path%/}
 
 # Configure Nginx and reload
-sed -i "s@SCHEMATOCHANGE@$schema@g" ../conf/nginx.conf
+sed -i "s@SCHEMETOCHANGE@$schema@g" ../conf/nginx.conf
 sed -i "s@PATHTOCHANGE@$path@g" ../conf/nginx.conf
 sed -i "s@HOSTTOCHANGE@$host@g" ../conf/nginx.conf
 sed -i "s@PORTTOCHANGE@$port@g" ../conf/nginx.conf
-sed -i "s@HOSTPATHTOCHANGE@$hostpath@g" ../conf/nginx.conf
+sed -i "s@REMOTEPATH@$remotepath@g" ../conf/nginx.conf
+sed -i "s@INCLUDEFILE@$includefile@g" ../conf/nginx.conf
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/reverseproxy.conf
 sudo service nginx reload
 echo $?
